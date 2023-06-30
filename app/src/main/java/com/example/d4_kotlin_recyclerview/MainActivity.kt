@@ -3,6 +3,7 @@ package com.example.d4_kotlin_recyclerview
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -22,6 +23,13 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.setBackgroundColor(Color.YELLOW)
         recyclerView.layoutManager = LinearLayoutManager(this)//setting layout manager
-        recyclerView.adapter = Adapter(fruitsList)
+        recyclerView.adapter = Adapter(
+            fruitsList
+        ) { selectedItem: Fruit ->
+            listItemClicked(selectedItem)
+        }
+    }
+    private fun listItemClicked(fruit: Fruit){
+        Toast.makeText(this@MainActivity, "Supplier: ${fruit.supplier}", Toast.LENGTH_LONG).show()
     }
 }
