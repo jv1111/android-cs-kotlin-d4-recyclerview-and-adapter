@@ -6,8 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class Adapter : RecyclerView.Adapter<ViewHolder>(){
-    val fruitsList = listOf<String>("fruit1","fruit2","fruit3","fruit4","fruit5","fruit6")
+class Adapter(val fruitsList:List<String>) : RecyclerView.Adapter<ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val listItem = layoutInflater.inflate(R.layout.list_item, parent, false)
